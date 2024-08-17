@@ -3,6 +3,7 @@
 
 //Add hozzá utána:
 #ifdef ENABLE_RENEVAL_REGEN
+	DWORD	timeRange;
 	time_t	nextRespawn;
 #endif
 
@@ -11,5 +12,6 @@
 
 //Add hozzá utána:
 #ifdef ENABLE_RENEVAL_REGEN
+		timeRange(0),
 		nextRespawn(0),
 #endif
