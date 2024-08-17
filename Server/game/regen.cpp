@@ -3,7 +3,7 @@
 
 	return PASSES_PER_SEC(regen->time);
 
-//Cseréld le:
+//Add hozzá alötte:
 #ifdef ENABLE_RENEVAL_REGEN
 	if(regen->nextRespawn)
 	{
