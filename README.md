@@ -1,8 +1,13 @@
-Ezzel a módosítással a CHARACTER::Destroy() után fog csak újra spawnolni Szörny/NPC .. stb
-Ha ez egy Szörny és MOB_RANK_BOSS akkor az újra spawnolás megölés utántól a regen.txt-ben, boss.txt-ben... stb megadott idő
-és az idő 1,5*-ös intervallum között fog megtörténni valamikor.
+1. Ezzel a módosítással beállítható időintervallum az újra spawnoláshoz.
+2. Eltünés/ megölés utánatól fog elindulni az új respawn event.
+3. CHARACTER::Destroy() funkció után fog megtörténni az új idő beállítása a spawn-nak.
 
-//Példa: Boss-nak 1 óra respawn van beállítva 21:00-kor megölik akkor random fog újraéledni 22:00 és 22:30 között.
+Minden pályán a boss.txt, npc.txt ...stb fáljt ki kell egészíteni egy intervallum oszloppal közvetlen a respawn idő után.
+Ugyan úgy használható az 's','m','h' a megadott érték után.
 
-//Hamarosan ki fogom egészíteni egy kisebb módosítással, ahol a txt-ben megadható lesz egy 'x-ig' érték ami erre fog szolgálni, hogy mi magunk állítsuk be
-ezt az intervallumot.
+Példa a .txt fáljra:
+-Régi:m  804  830  1  1  0  0  10s  100  1  591
+-Új  :m  804  830  1  1  0  0  10s  10s  100  1  591
+
+Így ha megölésre kerül az 591-es szörny, akkor 10-20 másodperc között fog valamikor újra éledni. 
+(Nem közvetlen megöléstől megy az idő hanem CHARACTER::Destroy()-tól (CHARACTER::Destroy() == amikor eltünik a valami (Megölt szörny esetén a holtteste)))
