@@ -13,6 +13,7 @@
 //Utána add hozzá:
 
 #ifdef ENABLE_RENEVAL_REGEN
-		DWORD timecalc = (GetMobRank() == MOB_RANK_BOSS) ? number(m_pkRegen->time, m_pkRegen->time+(m_pkRegen->time/2)) : m_pkRegen->time;
+		DWORD timecalc = (GetMobRank() == MOB_RANK_BOSS) ? number(m_pkRegen->time, (m_pkRegen->time + m_pkRegen->timeRange)) : m_pkRegen->time;
 		m_pkRegen->nextRespawn = m_pkRegen->time ? time(0) + timecalc : 0;
 #endif
+
